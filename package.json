@@ -1,0 +1,22 @@
+{
+  "name": "weather-app-node-practice",
+  "version": "1.0.0",
+  "description": "Search the weather of cities",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mjmb1995/weather-app-node-practice.git"
+  },
+  "author": "Mark Bihag",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mjmb1995/weather-app-node-practice/issues"
+  },
+  "homepage": "https://github.com/mjmb1995/weather-app-node-practice#readme",
+  "dependencies": {
+    "weather-js": "^2.0.0"
+  }
+}
