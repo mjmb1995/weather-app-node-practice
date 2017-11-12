@@ -1,14 +1,38 @@
-var weather = require("./newUserSearch");
+var WeatherAdmin = require("./weatherAdmin");
+var inquirer = require("inquirer");
 
-var nodeArgs = process.argv;
-var accessType = process.argv[2]; 
+var startApp = function(){
+	inquirer
+		.prompt([
+		{
+			type: "list",
+			name: "accessType",
+			message: "Please select access type. Be honest.",
+			choices: ["user", "admin"]
+		}
+		]).then(function(answers){
+			if (answers.accessType === "user"){
+				inquirer
+					.prompt([
+					{
+						type: "input",
+						name: "name",
+						message: "What is your name?"
+					},
+					{
+						type: "input",
+						name: "location",
+						message: "What city would you like to check the weather?"
+					}
+					]).then(function(answers){
+						var user = new WeatherAdmin();
+						user.newUserSearch(answers.name, answers.location);
+					})
+			}else{
+				var user = new WeatherAdmin();
+				user.getData();
+			}
+		})
+}
 
-if (accessType === "user"){
-	var name = nodeArgs[3];
-	var city = nodeArgs[4];
-	for (var i = 5; i < nodeArgs.length; i++){
-		city = city + " " + nodeArgs[i]
-	}
-	var user = new UserSearch(name, city);
-	user.getWeather()
-};
+startApp();
